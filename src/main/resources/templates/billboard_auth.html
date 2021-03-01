@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Billboard</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<p>
+    <a href="/logout">Sign out</a>
+    <a href="/add"> | Add advert</a>
+</p>
+<table>
+    <th:block th:each="item : ${adverts.allUsers()}">
+        <tr class=\"header\"><th>
+            <form th:method="GET" th:action="@{/delete/{id}(id=${item.getId()})}">
+                <input type="submit" value="Delete"/>
+            </form>
+        </th></tr>
+
+    <tr class="header">
+        <th>
+            <a th:text="${item.getUsername()}"></a>
+            <a> | </a>
+            <a th:text="${item.getDate}"></a>
+        </th>
+    </tr>
+    <p></p>
+    <tr class="content">
+        <th>
+            <textarea readonly rows="10" cols="100" th:text="${item.getContent()}"></textarea>
+        </th>
+    </tr>
+    </th:block>
+</table>
+</body>
+</html>

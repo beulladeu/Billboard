@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<h3>Sign up</h3>
+<form th:action="@{/signup}" method="POST" th:modelAttribute="userForm">
+    <p>
+        <input type="text" path="username" placeholder="Username"
+                    autofocus="true">
+    </p><br>
+    <p>
+        <input type="password" path="password" placeholder="Password">
+    </p><br>
+    <p>
+        <input type="password"
+                    placeholder="Confirm your password">
+    </p><br>
+    <button type="submit">Sign Up</button>
+</form><br>
+<!--<form:form method="POST" modelAttribute="userForm">
+    <p>Login:</p><form:input type="text" name="name"></form:input><br>
+    <form:errors path="username"></form:errors> ${usernameError}
+    <p>Password:</p><form:input type="password" pattern="(?=^.{5,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*" title="Minimum 5 characters, one number, one uppercase and one lowercase" name="password"></form:input><p></p>
+    <p>Repeat password:</p><form:input type="password" pattern="(?=^.{5,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*" title="Minimum 5 characters, one number, one uppercase and one lowercase" name="passwordCheck"></form:input><p></p>
+    <input type="submit" value="Sign up">
+</form:form>-->
+<a href="./billboard">View billboard</a>
+</body>
+</html>

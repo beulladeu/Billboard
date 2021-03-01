@@ -1,0 +1,57 @@
+body {
+    text-align: center;
+}
+
+table {
+    border: 3px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input{
+    font-size: 17pt;
+    font-style: italic;
+    border: 2px solid black;
+}
+
+textarea{
+    background-color: snow;
+    font-size: 15pt;
+    font-style: italic;
+    font-family: "JetBrains Mono", cursive;
+    border: 2px solid black;
+}
+
+tr, th, td {
+    border: 2px solid black;
+}
+
+.header {
+    color: forestgreen;
+    font-size: 20pt;
+    font-family: Arial, cursive;
+}
+
+.content {
+    text-align: left;
+    font-style: italic;
+    font-size: 20pt;
+    font-family: Arial, cursive;
+}
+
+a, p{
+    font-family: Arial, cursive;
+    font-size: 15pt;
+    color: yellowgreen;
+}
+
+h1, h2, h3 {
+    font-family: Arial, cursive;
+    font-size: 20pt;
+}
+
