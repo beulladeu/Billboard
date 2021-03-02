@@ -36,7 +36,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //Доступ только для не зарегистрированных пользователей
                 .antMatchers("/signup", "/billboard").not().fullyAuthenticated()
                 //Доступ только для пользователей с ролью Администратор
-                //.antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/billboard-auth").hasRole("USER")
                 .antMatchers("/add").hasRole("USER")
                 .antMatchers("/delete").hasRole("USER")

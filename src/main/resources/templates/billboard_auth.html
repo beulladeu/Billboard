@@ -13,8 +13,8 @@
 </p>
 <table>
     <th:block th:each="item : ${adverts.allUsers()}">
-        <tr class=\"header\"><th>
-            <form th:method="GET" th:action="@{/delete/{id}(id=${item.getId()})}">
+        <tr class=\"header\" th:if="${item.getUsername().equals(username)}"><th>
+            <form th:method="GET" th:action="@{/delete/{id}(id=${item.getId()})} ">
                 <input type="submit" value="Delete"/>
             </form>
         </th></tr>

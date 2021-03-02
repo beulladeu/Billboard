@@ -1,8 +1,10 @@
 package com.beulladeu.spring_demo.controller;
 
 import com.beulladeu.spring_demo.entity.Advert;
+import com.beulladeu.spring_demo.entity.User;
 import com.beulladeu.spring_demo.service.AdvertService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +22,10 @@ public class BillboardController {
 
     @GetMapping("/billboard-auth")
     public String showBillboardAuth(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = user.getUsername();
         model.addAttribute("adverts", advertService);
+        model.addAttribute("username", username);
         return "billboard_auth";
     }
 

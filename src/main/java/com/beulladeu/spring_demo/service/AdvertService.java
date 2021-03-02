@@ -24,7 +24,7 @@ public class AdvertService {
     public Advert create(String content) {
         final Advert advert = new Advert();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String name = auth.getName(); //get logged in username
+        String name = auth.getName();
         advert.setUsername(name);
         advert.setContent(content);
         advert.setDate(new Date(System.currentTimeMillis()));
@@ -33,7 +33,9 @@ public class AdvertService {
     }
 
     public boolean deleteAdvert(Long advertId) {
-        if (advertRepository.findById(advertId).isPresent()) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        if (advertRepository.findById(advertId).isPresent() && advertRepository.findById(advertId).get().getUsername().equals(name)) {
             advertRepository.deleteById(advertId);
             return true;
         }

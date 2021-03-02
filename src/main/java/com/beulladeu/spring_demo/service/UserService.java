@@ -17,12 +17,7 @@ import java.util.Optional;
 @Service
 public class UserService implements UserDetailsService {
 
-
     private final UserRepository userRepository;
-
-   /* @PersistenceContext
-    private EntityManager em;*/
-
 
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -53,8 +48,6 @@ public class UserService implements UserDetailsService {
         }
         user.setRoles(Collections.singleton(new Role(1L, "ROLE_USER")));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        //System.out.println(bCryptPasswordEncoder.encode("Vlada2"));
-        //user.setPassword(user.getPassword());
         userRepository.save(user);
         return true;
     }
@@ -66,9 +59,4 @@ public class UserService implements UserDetailsService {
         }
         return false;
     }
-
-    /*public List<Person> usergtList(Long idMin) {
-        return em.createQuery("SELECT u FROM users_t u WHERE u.id > :paramId", Person.class)
-                .setParameter("paramId", idMin).getResultList();
-    }*/
 }
